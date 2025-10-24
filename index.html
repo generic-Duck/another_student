@@ -1,38 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About – Meine Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home – Motorsport Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Über mich</h1>
-    <nav>
-      <a href="about.html" class="active">Über mich</a>
-      <a href="#">Projekte</a>
-      <a href="#">Kontakt</a>
-    </nav>
+  <nav class="nav">
+    <div class="wrap">
+      <div class="brand"><a href="index.html">MB • Motorsport</a></div>
+      <div class="burger">☰</div>
+      <div class="menu">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Speed • Precision • Engineering</h1>
+      <p class="lead">Portfolio & Fortschritt – motorsport-angehaucht, dunkel, klar strukturiert. Starte über die Bereiche unten.</p>
+      <div class="cta">
+        <a class="btn" href="about.html">About</a>
+        <a class="btn secondary" href="projects.html">Projects</a>
+        <a class="btn secondary" href="contact.html">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Willkommen!</h2>
-      <p>Ich bin <em>dein Name</em> und dies ist meine erste Website, die ich mit GitHub Pages erstellt habe.</p>
-    </section>
+  <section class="section">
+    <div class="grid">
+      <article class="card span-6">
+        <h3>About me</h3>
+        <p>Kurzvorstellung, Skills, Timeline – inklusive Unter-Navigation zum Direkt-Sprung.</p>
+        <a class="btn" href="about.html">Los</a>
+      </article>
+      <article class="card span-6">
+        <h3>Projects</h3>
+        <p>Sechs Projekt-Bereiche mit Screens & kurzen Teasern – als Scroll oder Sprungziel.</p>
+        <a class="btn" href="projects.html">Ansehen</a>
+      </article>
+      <article class="card span-6">
+        <h3>Contact</h3>
+        <p>Kontaktformular + Links. Keine Backend-Pflicht – Formular kann per Mailto oder später via Service.</p>
+        <a class="btn" href="contact.html">Kontakt</a>
+      </article>
+    </div>
+  </section>
 
-    <section>
-      <h2>Wöchentlicher Fortschritt</h2>
-      <ul>
-        <li><strong>Woche 1:</strong> Repo erstellt und Grundstruktur angelegt</li>
-        <li><strong>Woche 2:</strong> Layout und GitHub Pages aktiviert</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 von mir – Mit 💙 in VS Code gebaut</p>
-  </footer>
+  <footer>© 2025 MB • Built for GitHub Pages</footer>
+  <script src="script.js"></script>
 </body>
 </html>

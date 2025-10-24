@@ -1,59 +1,94 @@
-/* --- Grundlayout --- */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f8;
-  color: #333;
+:root{
+  --bg:#0d0f12;          /* dunkel */
+  --panel:#15181d;       /* Karten */
+  --text:#e6e9ef;        /* Haupttext */
+  --muted:#98a2b3;       /* Sekundärtext */
+  --accent:#d90429;      /* motorsport rot */
+  --accent-2:#00e0ff;    /* cyan für Details */
+  --shadow:0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font:16px/1.6 system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text); background:radial-gradient(1200px 600px at 20% -10%, #1a1f27 0%, #0d0f12 60%) fixed var(--bg);
 }
 
-/* --- Header & Navigation --- */
-header {
-  background: #2d3e50;
-  color: white;
-  padding: 1rem 2rem;
+/* ---------- Navbar ---------- */
+.nav{
+  position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px);
+  background:rgba(13,15,18,.7); border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav .wrap{
+  max-width:1100px; margin:auto; padding:.6rem 1rem; display:flex; align-items:center; gap:1rem;
+}
+.brand{font-weight:700; letter-spacing:.5px}
+.brand a{color:var(--text); text-decoration:none}
+.menu{display:flex; gap:1rem; margin-left:auto; align-items:center}
+.menu a{
+  color:var(--muted); text-decoration:none; padding:.4rem .6rem; border-radius:8px;
+}
+.menu a:hover, .menu a.active{color:var(--text); background:rgba(255,255,255,.06)}
+.burger{display:none; margin-left:auto; cursor:pointer}
+
+/* ---------- Hero / Sections ---------- */
+.hero{
+  min-height:60svh; display:grid; place-items:center; text-align:center; padding:4rem 1rem;
+  background:linear-gradient(180deg, rgba(217,4,41,.12), transparent 40%, transparent);
+}
+h1{font-size:clamp(2rem,3vw,3rem); margin:.2rem 0}
+.lead{color:var(--muted); max-width:700px; margin:.5rem auto 0}
+.cta{margin-top:1rem; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap}
+.btn{
+  background:var(--accent); color:#fff; border:none; padding:.7rem 1rem; border-radius:12px;
+  text-decoration:none; box-shadow:var(--shadow)
+}
+.btn.secondary{background:transparent; border:1px solid rgba(255,255,255,.15); color:var(--text)}
+
+.section{
+  max-width:1100px; margin:2rem auto; padding:0 1rem;
+}
+.grid{
+  display:grid; gap:1.2rem; grid-template-columns:repeat(12,1fr);
+}
+.card{
+  grid-column:span 12; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:1rem; box-shadow:var(--shadow)
+}
+.card h3{margin-top:0}
+
+/* ---------- Subnav (Anker) ---------- */
+.subnav{
+  position:sticky; top:58px; z-index:40; background:rgba(13,15,18,.85);
+  border-bottom:1px solid rgba(255,255,255,.06); overflow:auto;
+}
+.subnav .wrap{max-width:1100px; margin:auto; padding:.4rem 1rem; display:flex; gap:.5rem; flex-wrap:wrap}
+.subnav a{
+  color:var(--muted); text-decoration:none; padding:.35rem .6rem; border-radius:999px; border:1px solid rgba(255,255,255,.08)
+}
+.subnav a.active, .subnav a:hover{color:#fff; border-color:var(--accent); box-shadow:0 0 0 2px rgba(217,4,41,.2) inset}
+
+/* ---------- Contact ---------- */
+.form{
+  display:grid; gap:.8rem; max-width:720px; margin:auto;
+}
+input, textarea{
+  width:100%; background:#0f1216; color:var(--text); border:1px solid rgba(255,255,255,.1);
+  padding:.8rem 1rem; border-radius:12px; outline:none;
+}
+input:focus, textarea:focus{border-color:var(--accent)}
+footer{
+  border-top:1px solid rgba(255,255,255,.06); color:var(--muted);
+  text-align:center; padding:1.5rem 1rem; margin-top:2rem
 }
 
-header h1 {
-  margin: 0;
+/* ---------- Responsive ---------- */
+@media (min-width:700px){
+  .card.span-6{grid-column:span 6}
+  .card.span-4{grid-column:span 4}
 }
-
-nav {
-  margin-top: 0.5rem;
-}
-
-nav a {
-  color: #ddd;
-  text-decoration: none;
-  margin-right: 1rem;
-}
-
-nav a:hover,
-nav a.active {
-  color: #fff;
-  font-weight: bold;
-}
-
-/* --- Hauptinhalt --- */
-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  color: #2d3e50;
-}
-
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #2d3e50;
-  color: white;
-  margin-top: 2rem;
-  font-size: 0.9rem;
+@media (max-width:800px){
+  .menu{display:none}
+  .menu.open{display:flex; flex-direction:column; align-items:flex-start; padding:.6rem 0}
+  .burger{display:block}
 }
