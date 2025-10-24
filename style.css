@@ -1,0 +1,59 @@
+/* --- Grundlayout --- */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f8;
+  color: #333;
+}
+
+/* --- Header & Navigation --- */
+header {
+  background: #2d3e50;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+nav a:hover,
+nav a.active {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* --- Hauptinhalt --- */
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #2d3e50;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #2d3e50;
+  color: white;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
