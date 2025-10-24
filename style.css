@@ -51,6 +51,19 @@ h1{font-size:clamp(2rem,3vw,3rem); margin:.2rem 0}
 .grid{
   display:grid; gap:1.2rem; grid-template-columns:repeat(12,1fr);
 }
+/* --- Contact-Card mittig unter den ersten beiden --- */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* sorgt für zentrierte letzte Karte */
+  gap: 1.2rem;
+}
+
+.card {
+  flex: 1 1 340px; /* Mindestbreite, damit 2 nebeneinander passen */
+  max-width: 500px;
+}
+
 .card{
   grid-column:span 12; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
   border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:1rem; box-shadow:var(--shadow)
