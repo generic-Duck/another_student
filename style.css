@@ -77,9 +77,13 @@ input, textarea{
   padding:.8rem 1rem; border-radius:12px; outline:none;
 }
 input:focus, textarea:focus{border-color:var(--accent)}
-footer{
-  border-top:1px solid rgba(255,255,255,.06); color:var(--muted);
-  text-align:center; padding:1.5rem 1rem; margin-top:2rem
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: var(--panel);
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,.06);
 }
 
 /* ---------- Responsive ---------- */
