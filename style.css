@@ -292,3 +292,50 @@ footer{
   .card.span-6{grid-column:span 6}
   .card.span-4{grid-column:span 4}
 }
+/* ---------- PROJECT 2 TIMELINE ---------- */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+/* Jede „Blase“ */
+.timeline-item {
+  width: 100%;
+}
+
+.timeline-bubble {
+  max-width: 620px;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+
+/* Links / rechts versetzt */
+.timeline-item.left .timeline-bubble {
+  margin-right: auto;
+}
+
+.timeline-item.right .timeline-bubble {
+  margin-left: auto;
+}
+
+/* Bildcontainer */
+.timeline-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: .6rem;
+}
+
+.timeline-images img {
+  max-width: 150px;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.18);
+}
