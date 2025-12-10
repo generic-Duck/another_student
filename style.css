@@ -1,39 +1,60 @@
+/* ============================= */
+/*   GLOBAL / THEME             */
+/* ============================= */
+
 :root{
-  /* Dark-Nature Expedition Theme */
-  --bg:#1b2720;          /* dunkles Waldgrün */
-  --bg-2:#232f28;        /* zweite Hintergrundschicht */
-  --panel:#2f3a33;       /* Karten dunkel, aber nicht schwarz */
-  --panel-light:#39463e; /* Hover/Highlights */
-  --text:#e8f1eb;        /* leicht warmes, weiches Weißgrün */
-  --muted:#a8b8ad;       /* Sekundärtext – entsättigtes Grün-Grau */
-  --accent:#3fa76b;      /* lebendiges Naturgrün */
-  --accent-2:#74d8a0;    /* helles mintgrün für Effekte */
-  --shadow:0 8px 24px rgba(0,0,0,.35);
+  /* Dark-Nature Expedition Theme – warmes, weniger blaues Grün */
+  --bg: #1c241f;          /* dunkles Waldgrün */
+  --bg-2: #242e28;        /* zweite Hintergrundschicht */
+  --panel: #35443d;       /* Kartenhintergrund */
+  --panel-light: #3f4f46; /* Hover/Highlight */
+  --surface-light: #f6f7f5; /* helles Naturweiß (für einzelne Flächen) */
+  --surface-mid: #d8ddd9;   /* graugrüner Kontrastton */
+
+  --text: #f1f5f2;        /* leicht warmes Weiß */
+  --muted: #b5c3b9;       /* dezentes Grau-Grün für Sekundärtext */
+
+  --accent: #4ea96d;      /* natürlicheres Grün */
+  --accent-2: #9adbb3;    /* helles Mintgrün */
+
+  --shadow: 0 8px 24px rgba(0,0,0,.35);
 }
 
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  font:16px/1.6 system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  font:16px/1.6 system-ui, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
-
-  /* Dunkles Natur-Gradient */
   background:
-    radial-gradient(900px 500px at 20% 0%, #2a3a33 0%, transparent 60%),
+    radial-gradient(900px 500px at 20% 0%, #2a3832 0%, transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 }
 
-/* ---------- Navbar ---------- */
+/* Überschriften allgemein */
+h1,h2,h3,h4{
+  font-weight:600;
+}
+
+/* ============================= */
+/*   NAVIGATION                  */
+/* ============================= */
+
 .nav{
   position:sticky;
   top:0;
   z-index:50;
   backdrop-filter:saturate(150%) blur(10px);
-  background:rgba(34,45,38,.85);
+  background:rgba(34,45,38,.88);
   border-bottom:1px solid rgba(255,255,255,.06);
 }
+
 .nav .wrap{
   max-width:1100px;
   margin:auto;
@@ -42,57 +63,72 @@ body{
   align-items:center;
   gap:1rem;
 }
+
 .brand{
   font-weight:700;
   letter-spacing:.5px;
 }
+
 .brand a{
   color:var(--text);
   text-decoration:none;
 }
+
 .menu{
   display:flex;
   gap:1rem;
   margin-left:auto;
+  align-items:center;
 }
+
 .menu a{
   color:var(--muted);
   text-decoration:none;
-  padding:.4rem .6rem;
+  padding:.4rem .7rem;
   border-radius:999px;
+  transition:.15s ease;
 }
+
 .menu a:hover,
 .menu a.active{
   color:var(--text);
-  background:rgba(63,167,107,.15);
-  box-shadow:0 0 0 1px rgba(63,167,107,.25);
+  background:rgba(78,169,109,.18);
+  box-shadow:0 0 0 1px rgba(78,169,109,.3);
 }
 
 .burger{
   display:none;
+  margin-left:auto;
   cursor:pointer;
+  font-size:1.3rem;
 }
 
-/* ---------- Hero ---------- */
+/* ============================= */
+/*   HERO (Startseite)           */
+/* ============================= */
+
 .hero{
   min-height:60svh;
   display:grid;
   place-items:center;
   text-align:center;
   padding:4rem 1rem;
-  background:linear-gradient(180deg, rgba(63,167,107,.10), transparent 45%);
+  background:linear-gradient(180deg, rgba(78,169,109,.12), transparent 45%);
 }
+
 h1{
   font-size:clamp(2rem,3vw,3rem);
   margin:.2rem 0;
 }
+
 .lead{
   color:var(--muted);
   max-width:700px;
   margin:.5rem auto 0;
 }
 
-/* Buttons */
+/* Call-to-Action Buttons */
+
 .cta{
   margin-top:1rem;
   display:flex;
@@ -100,6 +136,7 @@ h1{
   justify-content:center;
   flex-wrap:wrap;
 }
+
 .btn{
   background:var(--accent);
   color:#fff;
@@ -108,29 +145,38 @@ h1{
   text-decoration:none;
   box-shadow:var(--shadow);
   font-weight:500;
-  transition:transform .1s ease, box-shadow .1s ease;
+  border:none;
+  cursor:pointer;
+  transition:transform .1s ease, box-shadow .1s ease, background .1s ease;
 }
+
 .btn:hover{
   transform:translateY(-2px);
   box-shadow:0 10px 26px rgba(0,0,0,.25);
-  background:#338d5a;
-}
-.btn.secondary{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.12);
-}
-.btn.secondary:hover{
-  background:rgba(63,167,107,.12);
+  background:#3a8e5a;
 }
 
-/* ---------- Sections ---------- */
+.btn.secondary{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:none;
+}
+
+.btn.secondary:hover{
+  background:rgba(78,169,109,.15);
+}
+
+/* ============================= */
+/*   SECTIONS / GRID / CARDS     */
+/* ============================= */
+
 .section{
   max-width:1200px;
   margin:2rem auto;
   padding:0 1rem;
 }
 
-/* ---------- GRID ---------- */
+/* Flex-Grid für alle Seiten (About, Projects, Contact) */
 .grid{
   display:flex;
   flex-wrap:wrap;
@@ -138,36 +184,46 @@ h1{
   gap:1.2rem;
 }
 
-/* ---------- Cards ---------- */
+/* Breitere, kontrastreiche Karten */
 .card{
-  flex:1 1 420px;
-  max-width:640px;
+  flex:1 1 520px;             /* Mindestbreite → schön breit */
+  max-width:820px;            /* maximale Breite pro Karte */
   background:var(--panel);
-  border:1px solid rgba(255,255,255,.04);
-  border-radius:18px;
-  padding:1.4rem 1.6rem;
-  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:20px;
+  padding:1.8rem 2rem;
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
   transition:background .2s ease, transform .2s ease;
 }
+
 .card:hover{
   background:var(--panel-light);
   transform:translateY(-2px);
 }
-.card h2, .card h3{
+
+.card h2,.card h3{
   margin-top:0;
+  margin-bottom:.4rem;
 }
+
 .card p{
   color:var(--muted);
 }
-/* ---------- Subnav ---------- */
+
+/* ============================= */
+/*   SUBNAV (About / Projects)   */
+/* ============================= */
+
 .subnav{
   position:sticky;
   top:58px;
   z-index:40;
-  background:rgba(38,50,43,.85);
-  border-bottom:1px solid rgba(255,255,255,.05);
-  backdrop-filter:saturate(140%) blur(8px);
+  background:rgba(38,50,44,.9);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  overflow:auto;
 }
+
 .subnav .wrap{
   max-width:1100px;
   margin:auto;
@@ -176,24 +232,30 @@ h1{
   gap:.5rem;
   flex-wrap:wrap;
 }
+
 .subnav a{
   color:var(--muted);
   text-decoration:none;
   padding:.35rem .9rem;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
   background:rgba(255,255,255,.06);
+  font-size:.9rem;
   transition:.15s ease;
 }
+
 .subnav a:hover,
 .subnav a.active{
   color:#ffffff;
-  background:rgba(63,167,107,.25);
-  border-color:var(--accent);
-  box-shadow:0 0 0 1px rgba(63,167,107,.35) inset;
+  background:var(--accent);
+  border-color:var(--accent-2);
+  box-shadow:0 0 0 1px rgba(154,219,179,.35) inset;
 }
 
-/* ---------- Contact Form ---------- */
+/* ============================= */
+/*   CONTACT FORM                */
+/* ============================= */
+
 .form{
   display:grid;
   gap:.8rem;
@@ -210,6 +272,7 @@ textarea{
   padding:.8rem 1rem;
   border-radius:12px;
   outline:none;
+  font:inherit;
   transition:border-color .15s ease, background .15s ease;
 }
 
@@ -219,7 +282,111 @@ textarea:focus{
   background:#324239;
 }
 
-/* ---------- Footer ---------- */
+/* ============================= */
+/*   PROJECT 2 TIMELINE          */
+/* ============================= */
+
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:1.6rem;
+  margin-top:1.6rem;
+}
+
+.timeline-item{
+  width:100%;
+}
+
+/* Versetzte Blasen */
+.timeline-item.left .timeline-bubble{
+  margin-right:auto;
+}
+
+.timeline-item.right .timeline-bubble{
+  margin-left:auto;
+}
+
+.timeline-bubble{
+  max-width:620px;
+  padding:1rem 1.2rem;
+  border-radius:16px;
+  background:var(--panel-light);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+
+.timeline-bubble h3{
+  margin-top:0;
+  margin-bottom:.4rem;
+}
+
+/* Bilder in der Timeline */
+.timeline-images{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-top:.6rem;
+}
+
+.timeline-images img{
+  max-width:220px;
+  max-height:160px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 6px 14px rgba(0,0,0,.35);
+}
+
+/* ============================= */
+/*   STEPS (falls genutzt)       */
+/* ============================= */
+
+.steps{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  margin-top:1.4rem;
+}
+
+.step{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:.8rem 1rem;
+  background:rgba(78,169,109,.12);
+  border:1px solid rgba(78,169,109,.30);
+  border-radius:14px;
+  transition:.15s ease;
+}
+
+.step:hover{
+  background:rgba(78,169,109,.22);
+  border-color:rgba(78,169,109,.45);
+  transform:translateX(4px);
+}
+
+.step-number{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  color:#fff;
+  background:var(--accent);
+  box-shadow:0 3px 8px rgba(0,0,0,.25);
+}
+
+.step-text{
+  font-size:1.05rem;
+  font-weight:500;
+  color:var(--text);
+}
+
+/* ============================= */
+/*   FOOTER                      */
+/* ============================= */
+
 footer{
   margin-top:4rem;
   padding:1.5rem 1rem;
@@ -229,113 +396,34 @@ footer{
   border-top:1px solid rgba(255,255,255,.05);
   font-size:.9rem;
 }
-/* ---------- PROJECT STEPS ---------- */
 
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.4rem;
-}
-
-.step {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: .8rem 1rem;
-  background: rgba(63,167,107,.12);
-  border: 1px solid rgba(63,167,107,.30);
-  border-radius: 14px;
-  transition: .15s ease;
-}
-
-.step:hover {
-  background: rgba(63,167,107,.22);
-  border-color: rgba(63,167,107,.45);
-  transform: translateX(4px);
-}
-
-.step-number {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  color: white;
-  background: var(--accent);
-  box-shadow: 0 3px 8px rgba(0,0,0,.25);
-}
-
-.step-text {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-/* ---------- Responsive ---------- */
+/* ============================= */
+/*   RESPONSIVE                  */
+/* ============================= */
 
 @media (max-width:800px){
-  .menu{display:none}
+  .menu{
+    display:none;
+  }
+
   .menu.open{
     display:flex;
     flex-direction:column;
     align-items:flex-start;
     padding:.6rem 0;
   }
+
   .burger{
     display:block;
   }
-}
 
-@media (min-width:700px){
-  .card.span-6{grid-column:span 6}
-  .card.span-4{grid-column:span 4}
-}
-/* ---------- PROJECT 2 TIMELINE ---------- */
+  .card{
+    flex:1 1 100%;
+    max-width:100%;
+  }
 
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  margin-top: 1.6rem;
-}
-
-/* Jede „Blase“ */
-.timeline-item {
-  width: 100%;
-}
-
-.timeline-bubble {
-  max-width: 620px;
-  padding: 1rem 1.2rem;
-  border-radius: 16px;
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 8px 20px rgba(0,0,0,.35);
-}
-
-/* Links / rechts versetzt */
-.timeline-item.left .timeline-bubble {
-  margin-right: auto;
-}
-
-.timeline-item.right .timeline-bubble {
-  margin-left: auto;
-}
-
-/* Bildcontainer */
-.timeline-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-  margin-top: .6rem;
-}
-
-.timeline-images img {
-  max-width: 150px;
-  max-height: 120px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,.18);
+  .timeline-bubble{
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
 }
